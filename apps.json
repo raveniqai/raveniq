@@ -1,0 +1,11 @@
+{
+  "_note": "Add an app here and run: python3 build.py. status is shown on the card; store_url null = 'Coming to the App Store'.",
+  "apps": [
+    {"name": "Forma", "tagline": "A training and nutrition coach that lives on your phone.",
+     "blurb": "Log workouts and meals, see what is working, and get one short, useful nudge a day. A training coach and a diet coach that work alone or together.",
+     "url": "https://forma.raveniq.ai/", "store_url": null, "status": "In testing", "accent": "#0F7B66"},
+    {"name": "Damla", "tagline": "Know whether you will have enough money until your next income.",
+     "blurb": "A calm cash-flow app for a household: what is safe to spend, what is coming, and what happens if you buy or delay something.",
+     "url": "https://damla.raveniq.ai/", "store_url": null, "status": "In testing", "accent": "#2F6FD0"}
+  ]
+}
