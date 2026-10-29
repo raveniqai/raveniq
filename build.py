@@ -33,11 +33,12 @@ page = f'''<!doctype html>
 <main id="main" class="wrap">
 <section class="hero"><h1>Small, calm, private apps for your iPhone.</h1>
 <p class="lead">RavenIQ builds focused tools that do one job well, keep your data on your phone, and stay out of your way.</p></section>
-<section id="why"><h2>Mission and vision</h2>
-<div class="duo">
-<article class="card plain"><h3>Our mission</h3><p>To make everyday decisions about health and money calmer, with simple apps that respect your privacy and show their working.</p></article>
-<article class="card plain"><h3>Our vision</h3><p>A growing family of small, well-made apps, each solving one real problem, that people trust because their data stays on their own phone.</p></article>
+</main>
+<section id="why" class="band"><div class="wrap inner">
+<div class="statement"><p class="eyebrow">Our vision</p><p class="big">A growing family of small, well-made apps, each solving one real problem, that people trust because their data stays on their own phone.</p></div>
+<div class="statement"><p class="eyebrow">Our mission</p><p class="mid">To build useful, trustworthy software that makes everyday life simpler and calmer.</p></div>
 </div></section>
+<main class="wrap">
 <section id="apps"><h2>Apps</h2>
 <div class="grid">
 {chr(10).join(card(a) for a in apps)}
@@ -57,8 +58,8 @@ page = f'''<!doctype html>
 </body></html>'''
 
 css = '''/* One stylesheet, system fonts, no external resources. */
-:root{--bg:#F5F7FA;--surface:#FFF;--text:#101A26;--muted:#4A5868;--line:#D8DFE8;--accent:#0B6E5B;--font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
-@media (prefers-color-scheme:dark){:root{--bg:#0A1420;--surface:#122030;--text:#E9F1F6;--muted:#9DB0BF;--line:#243548;--accent:#4FD1B0}}
+:root{--bg:#F5F7FA;--surface:#FFF;--text:#101A26;--muted:#4A5868;--line:#D8DFE8;--accent:#0B6E5B;--band:#0E1B2B;--band-text:#F2F7FA;--band-muted:#B7C6D3;--band-accent:#4FD1B0;--font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+@media (prefers-color-scheme:dark){:root{--bg:#0A1420;--surface:#122030;--text:#E9F1F6;--muted:#9DB0BF;--line:#243548;--accent:#4FD1B0;--band:#122A3F;--band-text:#F2F7FA;--band-muted:#B7C6D3;--band-accent:#4FD1B0}}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--text);font:1rem/1.6 var(--font)}
 .wrap{width:100%;max-width:56rem;margin:0 auto;padding-inline:1rem}
@@ -79,7 +80,11 @@ h2{font-size:1.5rem;margin:2.6rem 0 1rem}h3{font-size:1.25rem;margin:0}
 .open{display:inline-flex;align-items:center;min-height:44px;padding:0 1.1rem;background:var(--app,var(--accent));color:#fff;font-weight:700;border-radius:12px;text-decoration:none}
 .store,.soon{color:var(--muted);font-size:.92rem}.more{border-top-color:var(--line);border-style:dashed}
 .duo{display:grid;gap:1rem;grid-template-columns:1fr}@media(min-width:44rem){.duo{grid-template-columns:1fr 1fr}}
-.plain{border-top-color:var(--accent)}.plain p{font-size:1.05rem}
+.band{background:var(--band);color:var(--band-text);margin-block:1.5rem 0;padding-block:3.5rem}
+.inner{display:grid;gap:2.5rem}@media(min-width:48rem){.inner{grid-template-columns:3fr 2fr;gap:4rem;align-items:start}}
+.statement p{margin:0}.eyebrow{font-size:.8rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--band-accent);margin-bottom:.8rem!important}
+.big{font-size:clamp(1.55rem,4.2vw,2.35rem);line-height:1.25;font-weight:700;text-wrap:balance}
+.mid{font-size:clamp(1.15rem,2.6vw,1.45rem);line-height:1.4;color:var(--band-muted);text-wrap:balance}
 .points{padding-left:1.2rem}.points li{margin-bottom:.6rem}.email{font-weight:700;user-select:all}
 .foot{border-top:1px solid var(--line);padding-block:1.2rem 2rem;color:var(--muted);font-size:.9rem}
 '''
