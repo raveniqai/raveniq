@@ -29,10 +29,15 @@ page = f'''<!doctype html>
 <link rel="stylesheet" href="style.css">
 </head><body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="wrap bar"><a class="brand" href="./"><img src="mark.svg" width="32" height="32" alt="">RavenIQ</a><nav aria-label="Main"><a href="#apps">Apps</a><a href="#approach">Approach</a><a href="#contact">Contact</a></nav></header>
+<header class="wrap bar"><a class="brand" href="./"><img src="mark.svg" width="32" height="32" alt="">RavenIQ</a><nav aria-label="Main"><a href="#why">Mission</a><a href="#apps">Apps</a><a href="#approach">Approach</a><a href="#contact">Contact</a></nav></header>
 <main id="main" class="wrap">
 <section class="hero"><h1>Small, calm, private apps for your iPhone.</h1>
 <p class="lead">RavenIQ builds focused tools that do one job well, keep your data on your phone, and stay out of your way.</p></section>
+<section id="why"><h2>Mission and vision</h2>
+<div class="duo">
+<article class="card plain"><h3>Our mission</h3><p>To make everyday decisions about health and money calmer, with simple apps that respect your privacy and show their working.</p></article>
+<article class="card plain"><h3>Our vision</h3><p>A growing family of small, well-made apps, each solving one real problem, that people trust because their data stays on their own phone.</p></article>
+</div></section>
 <section id="apps"><h2>Apps</h2>
 <div class="grid">
 {chr(10).join(card(a) for a in apps)}
@@ -73,6 +78,8 @@ h2{font-size:1.5rem;margin:2.6rem 0 1rem}h3{font-size:1.25rem;margin:0}
 .tagline{font-weight:600}.links{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-top:1rem!important}
 .open{display:inline-flex;align-items:center;min-height:44px;padding:0 1.1rem;background:var(--app,var(--accent));color:#fff;font-weight:700;border-radius:12px;text-decoration:none}
 .store,.soon{color:var(--muted);font-size:.92rem}.more{border-top-color:var(--line);border-style:dashed}
+.duo{display:grid;gap:1rem;grid-template-columns:1fr}@media(min-width:44rem){.duo{grid-template-columns:1fr 1fr}}
+.plain{border-top-color:var(--accent)}.plain p{font-size:1.05rem}
 .points{padding-left:1.2rem}.points li{margin-bottom:.6rem}.email{font-weight:700;user-select:all}
 .foot{border-top:1px solid var(--line);padding-block:1.2rem 2rem;color:var(--muted);font-size:.9rem}
 '''
