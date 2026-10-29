@@ -25,11 +25,11 @@ page = f'''<!doctype html>
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#F5F7FA" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0A1420" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="{SITE}/">
-<link rel="icon" type="image/svg+xml" href="mark.svg"><link rel="icon" type="image/png" href="favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="style.css">
 </head><body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="wrap bar"><a class="brand" href="./"><img src="mark.svg" width="32" height="32" alt="">RavenIQ</a><nav aria-label="Main"><a href="#why">Mission</a><a href="#apps">Apps</a><a href="#approach">Approach</a><a href="#contact">Contact</a></nav></header>
+<header class="wrap bar"><a class="brand" href="./"><img src="mark.png" width="36" height="36" alt="">RavenIQ</a><nav aria-label="Main"><a href="#why">Mission</a><a href="#apps">Apps</a><a href="#approach">Approach</a><a href="#contact">Contact</a></nav></header>
 <main id="main" class="wrap">
 <section class="hero"><h1>Small, calm, private apps for your iPhone.</h1>
 <p class="lead">RavenIQ builds focused tools that do one job well, keep your data on your phone, and stay out of your way.</p></section>
@@ -58,15 +58,15 @@ page = f'''<!doctype html>
 </body></html>'''
 
 css = '''/* One stylesheet, system fonts, no external resources. */
-:root{--bg:#F5F7FA;--surface:#FFF;--text:#101A26;--muted:#4A5868;--line:#D8DFE8;--accent:#0B6E5B;--band:#0E1B2B;--band-text:#F2F7FA;--band-muted:#B7C6D3;--band-accent:#4FD1B0;--font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
-@media (prefers-color-scheme:dark){:root{--bg:#0A1420;--surface:#122030;--text:#E9F1F6;--muted:#9DB0BF;--line:#243548;--accent:#4FD1B0;--band:#122A3F;--band-text:#F2F7FA;--band-muted:#B7C6D3;--band-accent:#4FD1B0}}
+:root{--bg:#F5F7FA;--surface:#FFF;--text:#101A26;--muted:#4A5868;--line:#D8DFE8;--accent:#0A71AD;--band:#0E1B2B;--band-text:#F2F7FA;--band-muted:#B7C6D3;--band-accent:#2CB8F5;--font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+@media (prefers-color-scheme:dark){:root{--bg:#0A1420;--surface:#122030;--text:#E9F1F6;--muted:#9DB0BF;--line:#243548;--accent:#2CB8F5;--band:#122A3F;--band-text:#F2F7FA;--band-muted:#B7C6D3;--band-accent:#2CB8F5}}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--text);font:1rem/1.6 var(--font)}
 .wrap{width:100%;max-width:56rem;margin:0 auto;padding-inline:1rem}
 a{color:var(--accent);text-underline-offset:.15em}:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
 .skip{position:absolute;left:-999px;background:var(--surface);padding:.75rem 1rem}.skip:focus{left:0;z-index:5}
 .bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.25rem 1rem;padding-block:.5rem}
-.brand{display:inline-flex;align-items:center;gap:.6rem;min-height:44px;font-weight:800;font-size:1.2rem;letter-spacing:.01em;color:var(--text);text-decoration:none}.brand img{border-radius:8px}
+.brand{display:inline-flex;align-items:center;gap:.6rem;min-height:44px;font-weight:800;font-size:1.2rem;letter-spacing:.01em;color:var(--text);text-decoration:none}.brand img{border-radius:9px;background:#000}
 nav{display:flex;flex-wrap:wrap}nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 .7rem;color:var(--text);text-decoration:none;border-radius:8px}nav a:hover{color:var(--accent)}
 main{padding-block:1rem 3rem}
 h1,h2,h3{line-height:1.2;text-wrap:balance}
@@ -93,5 +93,5 @@ OUT.mkdir(exist_ok=True)
 (OUT / "404.html").write_text(page.replace("<title>RavenIQ</title>", '<title>Page not found - RavenIQ</title><base href="/">').replace('<section class="hero"><h1>Small, calm, private apps for your iPhone.</h1>', '<section class="hero"><h1>That page does not exist.</h1><p class="lead"><a href="./">Go to the RavenIQ home page</a></p><span hidden>').replace("</p></section>\n<section id=\"apps\">", "</p></span></section>\n<section id=\"apps\">",1), encoding="utf-8")
 (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n"); (OUT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>{SITE}/</loc></url></urlset>\n')
 (OUT / "CNAME").write_text("raveniq.ai\n")
-for f in ["mark.svg", "favicon-32.png", "apple-touch-icon.png"]: shutil.copy(ROOT / "assets" / f, OUT / f)
+for f in ["mark.png", "favicon-32.png", "apple-touch-icon.png"]: shutil.copy(ROOT / "assets" / f, OUT / f)
 print("built", len(apps), "apps")
